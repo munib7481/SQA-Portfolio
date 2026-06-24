@@ -397,19 +397,25 @@
                 </div>
 
                 <div class="contact-form-wrapper glass-card reveal stagger-1">
-                    <form class="contact-form" action="mailto:munib7481@gmail.com" method="POST" enctype="text/plain">
+                    <form class="contact-form" action="https://formsubmit.co/munib7481@gmail.com" method="POST">
                         <h3 class="mb-4">Send a Message</h3>
+                        
+                        <!-- Hidden Fields for Formsubmit -->
+                        <input type="hidden" name="_subject" value="New message from your Portfolio!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="4" placeholder="How can I help you?" required></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
                     </form>
