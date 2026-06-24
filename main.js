@@ -69,4 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.innerText = new Date().getFullYear();
     }
+
+    // 6. Active Nav Link on Scroll
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        if (current) {
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        }
+    });
 });
