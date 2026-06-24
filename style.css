@@ -323,6 +323,29 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent), var(--success), #8B5CF6, var(--accent));
+    z-index: -1;
+    border-radius: 50%;
+    background-size: 400%;
+    animation: glowRing 15s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes glowRing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 .profile-img {
@@ -351,15 +374,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .badge-1 {
-    top: 10%;
-    left: -10%;
+    top: 5%;
+    left: -15%;
     animation: float 6s ease-in-out infinite;
+    z-index: 2;
 }
 
 .badge-2 {
     bottom: 10%;
     right: -10%;
     animation: float 7s ease-in-out infinite reverse;
+    z-index: 2;
+}
+
+.badge-3 {
+    top: 15%;
+    right: -15%;
+    animation: float 8s ease-in-out infinite 1s;
+    z-index: 2;
+}
+
+.badge-4 {
+    bottom: 5%;
+    left: -15%;
+    animation: float 9s ease-in-out infinite alternate-reverse;
+    z-index: 2;
 }
 
 /* About Section */
