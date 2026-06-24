@@ -373,31 +373,36 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
 }
 
+@keyframes float-badge {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
 .badge-1 {
-    top: 5%;
+    top: 12%;
     left: -15%;
-    animation: float 6s ease-in-out infinite;
+    animation: float-badge 4s ease-in-out infinite;
     z-index: 2;
 }
 
 .badge-2 {
-    bottom: 10%;
-    right: -10%;
-    animation: float 7s ease-in-out infinite reverse;
+    bottom: 12%;
+    right: -15%;
+    animation: float-badge 5s ease-in-out infinite 1s;
     z-index: 2;
 }
 
 .badge-3 {
-    top: 15%;
-    right: -15%;
-    animation: float 8s ease-in-out infinite 1s;
+    top: 18%;
+    right: -20%;
+    animation: float-badge 4.5s ease-in-out infinite 0.5s;
     z-index: 2;
 }
 
 .badge-4 {
-    bottom: 5%;
-    left: -15%;
-    animation: float 9s ease-in-out infinite alternate-reverse;
+    bottom: 18%;
+    left: -10%;
+    animation: float-badge 5.5s ease-in-out infinite 1.5s;
     z-index: 2;
 }
 
