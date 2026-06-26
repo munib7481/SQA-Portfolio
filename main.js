@@ -93,4 +93,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // 7. Contact Form AJAX Submission
+    const contactForm = document.querySelector('.contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin ml-2"></i>';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(this);
+
+            fetch('https://formsubmit.co/ajax/munib7481@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessage.className = 'success-message text-center mb-4';
+                formMessage.innerText = 'Thank you! Your message has been sent successfully.';
+                this.reset();
+            })
+            .catch(error => {
+                formMessage.className = 'error-message text-center mb-4';
+                formMessage.innerText = 'Oops! Something went wrong. Please try again.';
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.className = 'hidden';
+                }, 5000);
+            });
+        });
+    }
 });
