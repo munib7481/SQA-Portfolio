@@ -1,16 +1,18 @@
 :root {
-    /* Color Palette */
-    --bg-primary: #0F172A;
-    --bg-secondary: #1E293B;
-    --bg-card: rgba(51, 65, 85, 0.4); /* #334155 with transparency for glassmorphism */
-    --card-border: rgba(255, 255, 255, 0.08);
+    /* Color Palette — Emerald + Mint + Cream */
+    --bg-primary: #022c22;           /* Deep Emerald Dark */
+    --bg-secondary: #064e3b;         /* Emerald #065F46 mid */
+    --bg-card: rgba(6, 78, 59, 0.45); /* Emerald transparent card */
+    --card-border: rgba(167, 243, 208, 0.12); /* Mint border */
     
-    --accent: #3B82F6;
-    --accent-hover: #2563EB;
-    --success: #10B981;
+    --accent: #065F46;               /* Emerald */
+    --accent-hover: #047857;         /* Emerald hover */
+    --accent-light: #A7F3D0;         /* Mint */
+    --success: #A7F3D0;              /* Mint */
+    --cream: #FFF8E7;                /* Cream */
     
-    --text-primary: #FFFFFF;
-    --text-secondary: #CBD5E1;
+    --text-primary: #FFF8E7;         /* Cream */
+    --text-secondary: #A7F3D0;       /* Mint */
     
     /* Typography */
     --font-heading: 'Poppins', sans-serif;
@@ -54,7 +56,7 @@ body {
     left: -10%;
     width: 40vw;
     height: 40vw;
-    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    background: radial-gradient(circle, #065F46 0%, transparent 70%);
 }
 
 .blob-2 {
@@ -62,7 +64,7 @@ body {
     right: -10%;
     width: 35vw;
     height: 35vw;
-    background: radial-gradient(circle, var(--success) 0%, transparent 70%);
+    background: radial-gradient(circle, #A7F3D0 0%, transparent 70%);
     animation-delay: -5s;
 }
 
@@ -71,7 +73,7 @@ body {
     left: 50%;
     width: 30vw;
     height: 30vw;
-    background: radial-gradient(circle, #8B5CF6 0%, transparent 70%);
+    background: radial-gradient(circle, #047857 0%, transparent 70%);
     animation-delay: -10s;
     transform: translate(-50%, -50%);
 }
@@ -147,26 +149,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background-color: var(--accent);
-    color: #FFF;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, #065F46, #047857);
+    color: var(--cream);
+    box-shadow: 0 4px 15px rgba(6, 95, 70, 0.4);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-hover);
+    background: linear-gradient(135deg, #047857, #065F46);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 6px 20px rgba(167, 243, 208, 0.3);
 }
 
 .btn-outline {
     background-color: transparent;
-    color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--cream);
+    border: 1px solid rgba(167, 243, 208, 0.3);
     backdrop-filter: blur(5px);
 }
 
 .btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(167, 243, 208, 0.1);
     transform: translateY(-2px);
 }
 
@@ -334,12 +336,12 @@ h1, h2, h3, h4, h5, h6 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, var(--accent), var(--success), #8B5CF6, var(--accent));
+    background: linear-gradient(45deg, #065F46, #A7F3D0, #FFF8E7, #065F46);
     z-index: -1;
     border-radius: 50%;
     background-size: 400%;
     animation: glowRing 15s linear infinite;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 @keyframes glowRing {
@@ -456,8 +458,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-pill:hover {
     transform: translateY(-5px);
-    border-color: var(--accent);
-    background-color: rgba(59, 130, 246, 0.1);
+    border-color: var(--success);
+    background-color: rgba(167, 243, 208, 0.1);
 }
 
 .skill-pill i {
@@ -494,8 +496,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: var(--accent);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    background-color: var(--success);
+    box-shadow: 0 0 10px rgba(167, 243, 208, 0.5);
 }
 
 .timeline-content {
@@ -555,8 +557,8 @@ h1, h2, h3, h4, h5, h6 {
 .tech-stack span {
     font-size: 0.8rem;
     padding: 0.3rem 0.8rem;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent);
+    background: rgba(167, 243, 208, 0.1);
+    color: var(--success);
     border-radius: 4px;
 }
 
@@ -708,7 +710,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input:focus, .contact-form textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.15);
 }
 
 .hidden {
@@ -781,7 +783,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
     display: none;
     z-index: 999;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(6, 95, 70, 0.4);
     transition: var(--transition);
 }
 
