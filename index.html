@@ -1,446 +1,1079 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munib Ur Rehman | SQA Engineer</title>
-    <meta name="description" content="Portfolio of Munib Ur Rehman, Software Quality Assurance Engineer.">
-    
-    <!-- Google Fonts: Poppins & Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Munib Ur Rehman | SQA Engineer</title>
+  <meta name="description" content="Portfolio of Munib Ur Rehman — Software Quality Assurance Engineer with 2+ years of experience in manual testing, API testing, and QA for web & mobile applications." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            dark: '#0a0a0f',
+            cyan: { DEFAULT: '#00d4ff', glow: 'rgba(0,212,255,0.4)' },
+            purple: { DEFAULT: '#7b2fff' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ─── Base ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0a0f;
+      color: #a0aec0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #00d4ff40; border-radius: 3px; }
+
+    /* ─── Gradient Text ─── */
+    .gradient-text {
+      background: linear-gradient(135deg, #00d4ff 0%, #7b2fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Glass Card ─── */
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* ─── Navbar ─── */
+    #navbar {
+      background: rgba(10,10,15,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+    }
+    #navbar.scrolled { padding-top: 0.5rem; padding-bottom: 0.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+    .nav-link {
+      position: relative;
+      color: #a0aec0;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: #00d4ff;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .nav-link:hover { color: #00d4ff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #00d4ff; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ─── Hero Canvas ─── */
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Typewriter ─── */
+    .typewriter-text { border-right: 3px solid #00d4ff; padding-right: 4px; }
+
+    /* ─── CTA Buttons ─── */
+    .btn-cyan {
+      background: linear-gradient(135deg, #00d4ff, #0099bb);
+      color: #0a0a0f;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-cyan:hover { box-shadow: 0 0 25px rgba(0,212,255,0.5); transform: translateY(-2px); }
+    .btn-outline-cyan {
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-cyan:hover { background: rgba(0,212,255,0.1); box-shadow: 0 0 20px rgba(0,212,255,0.3); transform: translateY(-2px); }
+
+    /* ─── Section Heading Underline ─── */
+    .section-line {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, #00d4ff, #7b2fff);
+      border-radius: 2px;
+      margin: 0.75rem auto 0;
+    }
+
+    /* ─── Skill Pills ─── */
+    .skill-pill {
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      color: #00d4ff;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .skill-pill:hover { transform: scale(1.05); box-shadow: 0 0 12px rgba(0,212,255,0.35); background: rgba(0,212,255,0.1); }
+
+    /* ─── Timeline ─── */
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, #00d4ff 10%, #7b2fff 90%, transparent);
+    }
+    .timeline-dot {
+      width: 16px; height: 16px;
+      background: #00d4ff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(0,212,255,0.2);
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(0,212,255,0.2); }
+      50% { box-shadow: 0 0 0 8px rgba(0,212,255,0.1), 0 0 16px rgba(0,212,255,0.3); }
+    }
+
+    /* ─── Project Card Top Border ─── */
+    .project-card { transition: all 0.3s ease; }
+    .project-card::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #7b2fff);
+      border-radius: 2px 2px 0 0;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.3) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+    /* ─── Stat Card ─── */
+    .stat-card { transition: all 0.3s ease; }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,212,255,0.15); }
+
+    /* ─── Contact Form ─── */
+    .form-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #e2e8f0;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-input::placeholder { color: #4a5568; }
+    .form-input:focus { border-color: #00d4ff; box-shadow: 0 0 0 3px rgba(0,212,255,0.1); }
+
+    /* ─── Toast ─── */
+    #toast {
+      transition: all 0.4s ease;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ─── Scroll Reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .timeline-dot { animation: none; }
+      .typewriter-text { border-right: none; }
+    }
+
+    /* ─── Hamburger ─── */
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #a0aec0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ─── Mobile Menu ─── */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    #mobile-menu.open { max-height: 400px; }
+
+    /* ─── Avatar gradient ─── */
+    .avatar-gradient {
+      background: linear-gradient(135deg, #00d4ff, #7b2fff);
+    }
+
+    /* focus visible */
+    *:focus-visible { outline: 2px solid #00d4ff; outline-offset: 3px; }
+  </style>
 </head>
-<body>
+<body class="font-body">
 
-    <!-- Floating Background Elements -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-6" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="text-2xl font-bold font-heading text-[#00d4ff] cursor-pointer" aria-label="Home">M.</a>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+      <!-- Desktop Links -->
+      <ul class="hidden md:flex items-center gap-8" role="list">
+        <li><a href="#home"       class="nav-link text-sm font-medium cursor-pointer">Home</a></li>
+        <li><a href="#about"      class="nav-link text-sm font-medium cursor-pointer">About</a></li>
+        <li><a href="#skills"     class="nav-link text-sm font-medium cursor-pointer">Skills</a></li>
+        <li><a href="#experience" class="nav-link text-sm font-medium cursor-pointer">Experience</a></li>
+        <li><a href="#projects"   class="nav-link text-sm font-medium cursor-pointer">Projects</a></li>
+        <li><a href="#contact"    class="nav-link text-sm font-medium cursor-pointer">Contact</a></li>
+      </ul>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-content container">
-            <a href="#home" class="logo">Munib Ur Rehman.</a>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+      <!-- Hamburger -->
+      <button class="hamburger md:hidden flex flex-col gap-1.5 cursor-pointer p-2" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden">
+      <ul class="flex flex-col gap-1 pt-4 pb-2 px-2" role="list">
+        <li><a href="#home"       class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">Home</a></li>
+        <li><a href="#about"      class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">About</a></li>
+        <li><a href="#skills"     class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">Skills</a></li>
+        <li><a href="#experience" class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">Experience</a></li>
+        <li><a href="#projects"   class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">Projects</a></li>
+        <li><a href="#contact"    class="nav-link block py-2 px-3 rounded-lg text-sm cursor-pointer">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+  <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden px-6 pt-20">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <!-- Greeting -->
+      <p class="text-[#4a5568] text-lg md:text-xl font-medium mb-3 reveal">Hello, I'm</p>
+
+      <!-- Name -->
+      <h1 class="font-heading font-bold text-5xl md:text-6xl lg:text-7xl leading-tight gradient-text mb-4 reveal" style="letter-spacing: -0.02em;">
+        Munib Ur Rehman
+      </h1>
+
+      <!-- Typewriter -->
+      <div class="flex items-center justify-center gap-2 mb-8 reveal">
+        <span class="text-[#a0aec0] text-lg md:text-xl">I'm a&nbsp;</span>
+        <span id="typewriter" class="typewriter-text text-[#00d4ff] font-semibold text-lg md:text-xl font-heading"></span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="text-[#a0aec0] text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed reveal">
+        Ensuring Software Quality Through Precision, Testing Excellence, and Continuous Improvement
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-16 reveal">
+        <a href="https://drive.google.com/file/d/1ukKfMV2iXQmn4OOofh4SV9K9QHjB0chy/view" target="_blank" rel="noopener"
+           class="btn-cyan px-7 py-3 rounded-xl text-sm font-semibold cursor-pointer flex items-center gap-2"
+           aria-label="View Resume">
+          <i class="fas fa-file-pdf"></i> View Resume
+        </a>
+        <a href="#contact" class="btn-outline-cyan px-7 py-3 rounded-xl text-sm font-semibold cursor-pointer flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+        <div class="stat-card glass rounded-2xl p-4 cursor-default">
+          <i class="fas fa-check-circle text-[#00d4ff] text-xl mb-2"></i>
+          <div class="text-white font-semibold font-heading text-sm">2+ Years Exp</div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="hero section">
-        <div class="container hero-grid">
-            <div class="hero-text reveal">
-                <span class="hero-greeting">Hello, I'm</span>
-                <h1 class="hero-title">Munib Ur Rehman</h1>
-                <h2 class="hero-subtitle text-accent">Software Quality Assurance Engineer</h2>
-                <p class="hero-tagline">
-                    Ensuring Software Quality Through Precision, Testing Excellence, and Continuous Improvement.
-                </p>
-                <p class="hero-intro">
-                    Detail-oriented Software Quality Assurance (SQA) Engineer with 2+ years of experience in manual testing, API testing, regression testing, and quality assurance for web and mobile applications. Experienced in delivering defect-free software releases, collaborating with cross-functional teams, and maintaining high-quality standards throughout the Software Development Life Cycle (SDLC) and Software Testing Life Cycle (STLC).
-                </p>
-                <div class="hero-actions">
-                    <a href="#resume" class="btn btn-primary">Download Resume <i class="fas fa-download ml-2"></i></a>
-                    <a href="#contact" class="btn btn-outline">Contact Me <i class="fas fa-paper-plane ml-2"></i></a>
-                </div>
-            </div>
-            <div class="hero-image-wrapper reveal stagger-1">
-                <div class="profile-image-container glass-card">
-                    <img src="profile.jpg" alt="Munib Ur Rehman" class="profile-img">
-                </div>
-                <div class="floating-badge badge-1 glass-card">
-                    <i class="fas fa-check-circle text-success"></i> 2+ Years Exp
-                </div>
-                <div class="floating-badge badge-2 glass-card">
-                    <i class="fas fa-bug text-accent"></i> API & Web Testing
-                </div>
-                <div class="floating-badge badge-3 glass-card">
-                    <i class="fas fa-mobile-alt text-success"></i> Mobile Testing
-                </div>
-                <div class="floating-badge badge-4 glass-card">
-                    <i class="fas fa-rocket text-accent"></i> Postman & Agile
-                </div>
-            </div>
+        <div class="stat-card glass rounded-2xl p-4 cursor-default">
+          <i class="fas fa-bug text-[#00d4ff] text-xl mb-2"></i>
+          <div class="text-white font-semibold font-heading text-sm">API & Web Testing</div>
         </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <h2 class="section-title">About Me</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="about-content glass-card reveal">
-                <div class="about-text text-center">
-                    <p class="mb-5">
-                        I am a passionate Software Quality Assurance Engineer dedicated to ensuring software reliability, usability, and performance. With experience across enterprise systems, mobile applications, AI-powered products, educational platforms, IPTV solutions, and fintech applications, I focus on identifying defects early and improving product quality through structured testing processes.
-                    </p>
-                    
-                    <h3 class="mb-4 text-accent">Quick Facts</h3>
-                    <ul class="about-highlights text-left" style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; list-style: none;">
-                        <li><i class="fas fa-check text-accent mr-2"></i> 2+ Years of Professional Experience</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Web & Mobile Application Testing</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> API Testing using Postman</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Firebase Crashlytics Analysis</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Agile/Scrum Environment</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Manual & Functional Testing</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Test Case Design & Execution</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Defect Tracking & Reporting</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="stat-card glass rounded-2xl p-4 cursor-default">
+          <i class="fas fa-mobile-alt text-[#00d4ff] text-xl mb-2"></i>
+          <div class="text-white font-semibold font-heading text-sm">Mobile Testing</div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="skills-category mt-5 reveal">
-                <h3 class="mb-3 text-accent text-center">Testing Expertise</h3>
-                <div class="skills-grid">
-                    <div class="skill-pill glass-card">Manual Testing</div>
-                    <div class="skill-pill glass-card">Functional Testing</div>
-                    <div class="skill-pill glass-card">Regression Testing</div>
-                    <div class="skill-pill glass-card">Smoke Testing</div>
-                    <div class="skill-pill glass-card">Sanity Testing</div>
-                    <div class="skill-pill glass-card">Exploratory Testing</div>
-                    <div class="skill-pill glass-card">Ad-hoc Testing</div>
-                    <div class="skill-pill glass-card">UI/UX Testing</div>
-                    <div class="skill-pill glass-card">Integration Testing</div>
-                    <div class="skill-pill glass-card">End-to-End Testing (E2E)</div>
-                    <div class="skill-pill glass-card">User Acceptance Testing (UAT)</div>
-                    <div class="skill-pill glass-card">Performance Testing</div>
-                    <div class="skill-pill glass-card">Cross-Platform Testing</div>
-                    <div class="skill-pill glass-card">API Testing</div>
-                </div>
-            </div>
-
-            <div class="skills-category mt-5 reveal stagger-1">
-                <h3 class="mb-3 text-accent text-center">Tools & Platforms</h3>
-                <div class="skills-grid">
-                    <div class="skill-pill glass-card">Postman</div>
-                    <div class="skill-pill glass-card">Selenium WebDriver</div>
-                    <div class="skill-pill glass-card">JIRA</div>
-                    <div class="skill-pill glass-card">TestRail</div>
-                    <div class="skill-pill glass-card">Firebase Crashlytics</div>
-                    <div class="skill-pill glass-card">Google AdMob</div>
-                    <div class="skill-pill glass-card">Firebase Ads</div>
-                </div>
-            </div>
-
-            <div class="skills-category mt-5 reveal">
-                <h3 class="mb-3 text-accent text-center">Methodologies & Programming</h3>
-                <div class="skills-grid">
-                    <div class="skill-pill glass-card">SDLC</div>
-                    <div class="skill-pill glass-card">STLC</div>
-                    <div class="skill-pill glass-card">Agile Scrum</div>
-                    <div class="skill-pill glass-card">Bug Tracking & Reporting</div>
-                    <div class="skill-pill glass-card">Test Strategy</div>
-                    <div class="skill-pill glass-card">Test Planning</div>
-                    <div class="skill-pill glass-card"><i class="fab fa-python text-accent mr-2"></i> Python</div>
-                    <div class="skill-pill glass-card"><i class="fas fa-brain text-accent mr-2"></i> Machine Learning Fundamentals</div>
-                </div>
-            </div>
+        <div class="stat-card glass rounded-2xl p-4 cursor-default">
+          <i class="fas fa-rocket text-[#00d4ff] text-xl mb-2"></i>
+          <div class="text-white font-semibold font-heading text-sm">Postman & Agile</div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="header-line"></div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 opacity-50">
+      <span class="text-xs text-[#4a5568]">Scroll down</span>
+      <div class="w-px h-12 bg-gradient-to-b from-[#00d4ff] to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════════════ -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Heading -->
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Avatar -->
+        <div class="flex justify-center reveal">
+          <div class="relative">
+            <div class="avatar-gradient w-48 h-48 md:w-56 md:h-56 rounded-full flex items-center justify-center text-5xl font-bold font-heading text-white shadow-2xl" style="box-shadow: 0 0 60px rgba(0,212,255,0.2);">
+              MR
             </div>
-            <div class="timeline mt-5">
-                
-                <!-- ASAPP Studio -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">March 2025 – Present</span>
-                        <h3 class="timeline-role">SQA Engineer</h3>
-                        <h4 class="timeline-company text-accent">Asapp Studio</h4>
-                        <ul class="timeline-list mt-3">
-                            <li>Conduct functional, regression, usability, and end-to-end testing.</li>
-                            <li>Perform API testing using Postman.</li>
-                            <li>Design and execute comprehensive test cases.</li>
-                            <li>Lead regression and user acceptance testing.</li>
-                            <li>Collaborate with developers and clients.</li>
-                            <li>Mentor junior QA engineers.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Orax Technology -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">May 2024 – March 2025</span>
-                        <h3 class="timeline-role">Associate SQA Engineer</h3>
-                        <h4 class="timeline-company text-accent">Orax Technologies</h4>
-                        <ul class="timeline-list mt-3">
-                            <li>Performed manual testing for web and mobile applications.</li>
-                            <li>Conducted UI, integration, and functional testing.</li>
-                            <li>Analyzed ANR and crash reports using Firebase Crashlytics.</li>
-                            <li>Verified Google AdMob and Firebase Ads implementations.</li>
-                            <li>Created and maintained detailed test documentation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- ITSOLERA -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">February 2024 – April 2024</span>
-                        <h3 class="timeline-role">Artificial Intelligence Intern</h3>
-                        <h4 class="timeline-company text-accent">ITSOLERA Pvt Ltd</h4>
-                        <ul class="timeline-list mt-3">
-                            <li>Worked on NLP and Machine Learning projects.</li>
-                            <li>Developed predictive models using Python.</li>
-                            <li>Performed data preprocessing and model evaluation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+            <!-- Decorative rings -->
+            <div class="absolute inset-0 rounded-full border border-[#00d4ff]/20 scale-110"></div>
+            <div class="absolute inset-0 rounded-full border border-[#7b2fff]/10 scale-125"></div>
+          </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="projects-grid mt-5">
-                
-                <div class="project-card glass-card reveal">
-                    <h3 class="project-title text-accent">ERP AsApp Studio</h3>
-                    <p class="project-desc mb-3">Enterprise Resource Planning platform covering HR, Finance, CRM, Payroll, and Project Management modules.</p>
-                    <p class="project-desc"><strong>Role:</strong> Functional Testing, Integration Testing, Regression Testing</p>
-                </div>
+        <!-- Text -->
+        <div class="reveal">
+          <h3 class="font-heading font-semibold text-2xl text-white mb-4">Software Quality Assurance Engineer</h3>
+          <p class="text-[#a0aec0] leading-relaxed mb-6">
+            Detail-oriented SQA Engineer with <span class="text-[#00d4ff] font-medium">2+ years of experience</span> in manual testing, API testing, regression testing, and quality assurance for web and mobile applications. Experienced in delivering defect-free software releases, collaborating with cross-functional teams, and maintaining high-quality standards throughout the SDLC and STLC.
+          </p>
+          <p class="text-[#a0aec0] leading-relaxed mb-8">
+            I am passionate about software reliability, usability, and performance. With experience across enterprise systems, mobile applications, AI-powered products, educational platforms, IPTV solutions, and sports technology — I bring a versatile and meticulous approach to every project.
+          </p>
 
-                <div class="project-card glass-card reveal stagger-1">
-                    <h3 class="project-title text-accent">IConnct</h3>
-                    <p class="project-desc mb-3">Real estate marketplace for property buying, selling, and renting.</p>
-                    <p class="project-desc"><strong>Role:</strong> End-to-End Testing, UI Testing, Defect Validation</p>
-                </div>
-
-                <div class="project-card glass-card reveal stagger-2">
-                    <h3 class="project-title text-accent">Fleet2Share</h3>
-                    <p class="project-desc mb-3">Vehicle sharing and fleet management platform.</p>
-                    <p class="project-desc"><strong>Role:</strong> Functional Testing, Scheduling Validation, User Flow Testing</p>
-                </div>
-
-                <div class="project-card glass-card reveal">
-                    <h3 class="project-title text-accent">Go Mobile</h3>
-                    <p class="project-desc mb-3">Educational platform connecting schools, teachers, students, and parents.</p>
-                    <p class="project-desc"><strong>Role:</strong> Attendance Testing, Academic Module Verification, Performance Tracking</p>
-                </div>
-
-                <div class="project-card glass-card reveal stagger-1">
-                    <h3 class="project-title text-accent">CourtPro</h3>
-                    <p class="project-desc mb-3">Sports ground booking and team management application.</p>
-                    <p class="project-desc"><strong>Role:</strong> Usability Testing, Match Scheduling Verification</p>
-                </div>
-
-                <div class="project-card glass-card reveal stagger-2">
-                    <h3 class="project-title text-accent">Passarell AI Multilingual Chat</h3>
-                    <p class="project-desc mb-3">AI-powered multilingual communication platform.</p>
-                    <p class="project-desc"><strong>Role:</strong> Translation Validation, Functional Testing, Performance Testing</p>
-                </div>
-
-                <div class="project-card glass-card reveal">
-                    <h3 class="project-title text-accent">IPTV Smart Stream Player</h3>
-                    <p class="project-desc mb-3">Android TV, iOS, and Tablet IPTV Streaming Application.</p>
-                    <p class="project-desc"><strong>Role:</strong> Live Streaming Validation, Player Functionality Testing, UI Testing, Device Compatibility Testing</p>
-                </div>
-
-                <div class="project-card glass-card reveal stagger-1">
-                    <h3 class="project-title text-accent">InvoiceNow</h3>
-                    <p class="project-desc mb-3">Financial management and invoicing application.</p>
-                    <p class="project-desc"><strong>Role:</strong> Invoice Creation Testing, PDF Export Verification, Cloud Backup Validation, Security Testing</p>
-                </div>
-
-            </div>
-
-            <!-- Additional Products Section -->
-            <div class="glass-card mt-5 p-4 reveal" style="padding: 3rem;">
-                <h3 class="text-center mb-4 text-accent">Additional Products Tested</h3>
-                <div class="skills-grid" style="justify-content: center; margin-bottom: 2rem;">
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">QR Scanner</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">PDF Reader</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Document Reader</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Translation App</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Status Saver</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Typesnip</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Kid Coloring Saga</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">SolverPad</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Video Teleprompter</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Quran App</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">XWhite Gate</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">XBlack Gate</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">App Shield</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Habit Tracker</span>
-                    <span class="skill-pill" style="border: 1px solid var(--card-border);">Tier Maker Ranking</span>
-                </div>
-                
-                <h4 class="text-center mb-3">Testing Methodologies Applied:</h4>
-                <div class="skills-grid" style="justify-content: center;">
-                    <span class="skill-pill bg-primary" style="background: rgba(59, 130, 246, 0.2); color: var(--text-primary);"><i class="fas fa-check text-success mr-2"></i> Functional Testing</span>
-                    <span class="skill-pill bg-primary" style="background: rgba(59, 130, 246, 0.2); color: var(--text-primary);"><i class="fas fa-check text-success mr-2"></i> Crash & ANR Analysis</span>
-                    <span class="skill-pill bg-primary" style="background: rgba(59, 130, 246, 0.2); color: var(--text-primary);"><i class="fas fa-check text-success mr-2"></i> Firebase Validation</span>
-                    <span class="skill-pill bg-primary" style="background: rgba(59, 130, 246, 0.2); color: var(--text-primary);"><i class="fas fa-check text-success mr-2"></i> AdMob & Meta Ads Verification</span>
-                </div>
-            </div>
-
+          <!-- Quick facts -->
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-map-marker-alt mr-1"></i>Pakistan</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-envelope mr-1"></i>munib7481@gmail.com</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-phone mr-1"></i>+92 301 5732050</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-graduation-cap mr-1"></i>BS-IT (CGPA 3.23)</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-briefcase mr-1"></i>2+ Years Experience</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-mobile-alt mr-1"></i>Web & Mobile QA</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-vial mr-1"></i>API Testing Expert</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs font-medium"><i class="fas fa-users mr-1"></i>Agile / Scrum</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Resume & Education Section -->
-    <section id="resume" class="section resume-section">
-        <div class="container text-center reveal">
-            <div class="resume-box glass-card mb-5">
-                <div class="mb-5">
-                    <i class="fas fa-graduation-cap text-accent" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                    <h2 class="section-title mb-2">Education</h2>
-                    <h3 class="text-primary">Bachelor of Science in Information Technology (BS-IT)</h3>
-                    <p class="text-secondary mt-2">University of Education, Lahore | CGPA: 3.23</p>
-                </div>
-                
-                <hr style="border-color: var(--card-border); margin: 3rem 0;">
-                
-                <h2 class="section-title mb-3">Ready to dive deeper?</h2>
-                <p class="text-secondary mb-4">Download my full resume to get a comprehensive overview of my experience, education, and technical skills.</p>
-                <a href="https://drive.google.com/file/d/1ukKfMV2iXQmn4OOofh4SV9K9QHjB0chy/view?usp=sharing" class="btn btn-primary btn-large" target="_blank" rel="noopener">
-                    <i class="fas fa-file-pdf mr-2"></i> View Resume
-                </a>
+  <!-- ═══════════════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════════════ -->
+  <section id="skills" class="py-24 px-6" style="background: rgba(255,255,255,0.01);">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">Technical Skills</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Testing Expertise -->
+        <div class="glass rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(0,212,255,0.1);">
+              <i class="fas fa-vial text-[#00d4ff]"></i>
             </div>
+            <h3 class="font-heading font-semibold text-white text-lg">Testing Expertise</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Manual Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Functional Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Regression Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Smoke Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Sanity Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Exploratory Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Ad-hoc Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">UI/UX Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Integration Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">E2E Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">UAT</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Performance Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Cross-Platform Testing</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">API Testing</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header text-center reveal">
-                <h2 class="section-title">Contact Me</h2>
-                <div class="header-line"></div>
+        <!-- Tools & Platforms -->
+        <div class="glass rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(123,47,255,0.1);">
+              <i class="fas fa-tools text-[#7b2fff]"></i>
             </div>
-            <div class="contact-grid mt-5">
-                
-                <div class="contact-info reveal">
-                    <h3 class="mb-4">Get In Touch</h3>
-                    <p class="text-secondary mb-4">
-                        Interested in working together or discussing opportunities? Feel free to reach out!
-                    </p>
-                    
-                    <div class="contact-list">
-                        <a href="mailto:munib7481@gmail.com" class="contact-item glass-card">
-                            <i class="fas fa-envelope text-accent"></i>
-                            <div>
-                                <span>Email</span>
-                                <strong>munib7481@gmail.com</strong>
-                            </div>
-                        </a>
-                        <a href="tel:+923015732050" class="contact-item glass-card">
-                            <i class="fas fa-phone text-accent"></i>
-                            <div>
-                                <span>Phone</span>
-                                <strong>+92 301 5732050</strong>
-                            </div>
-                        </a>
-                        <a href="https://www.linkedin.com/in/munib-ur-rehman-987215267/" class="contact-item glass-card" target="_blank" rel="noopener">
-                            <i class="fab fa-linkedin text-accent"></i>
-                            <div>
-                                <span>LinkedIn</span>
-                                <strong>Connect with me</strong>
-                            </div>
-                        </a>
-                        <div class="contact-item glass-card">
-                            <i class="fas fa-map-marker-alt text-accent"></i>
-                            <div>
-                                <span>Location</span>
-                                <strong>Pakistan</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-wrapper glass-card reveal stagger-1">
-                    <form class="contact-form" action="https://formsubmit.co/munib7481@gmail.com" method="POST">
-                        <h3 class="mb-4">Send a Message</h3>
-                        
-                        <div id="form-message" class="hidden"></div>
-                        
-                        <!-- Hidden Fields for Formsubmit -->
-                        <input type="hidden" name="_subject" value="New message from your Portfolio!">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
-                    </form>
-                </div>
-
-            </div>
+            <h3 class="font-heading font-semibold text-white text-lg">Tools & Platforms</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Postman</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Selenium WebDriver</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">JIRA</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">TestRail</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Firebase Crashlytics</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Google AdMob</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Firebase Ads</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Android Studio</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Charles Proxy</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container text-center">
-            <div class="footer-socials mb-4">
-                <a href="https://www.linkedin.com/in/munib-ur-rehman-987215267/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:munib7481@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <!-- Methodologies -->
+        <div class="glass rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(0,212,255,0.08);">
+              <i class="fas fa-sitemap text-[#00d4ff]"></i>
             </div>
-            <p class="copyright text-secondary">
-                &copy; <span id="year"></span> Munib Ur Rehman. All Rights Reserved.<br>
-                Software Quality Assurance Engineer.
+            <h3 class="font-heading font-semibold text-white text-lg">Methodologies & More</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">SDLC</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">STLC</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Agile Scrum</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Bug Tracking</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Test Strategy</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Test Planning</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Python</span>
+            <span class="skill-pill px-3 py-1.5 rounded-lg text-xs">Machine Learning Fundamentals</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════════════ -->
+  <section id="experience" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">Experience</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Timeline Wrapper -->
+      <div class="relative">
+        <!-- Center line (desktop) -->
+        <div class="timeline-line hidden md:block"></div>
+
+        <!-- Job 1 -->
+        <div class="md:grid md:grid-cols-2 gap-8 mb-12 items-center">
+          <div class="md:text-right reveal">
+            <div class="glass rounded-2xl p-6 md:mr-8">
+              <span class="text-[#00d4ff] text-xs font-semibold uppercase tracking-widest">March 2025 – Present</span>
+              <h3 class="font-heading font-bold text-white text-xl mt-2">SQA Engineer</h3>
+              <p class="text-[#7b2fff] font-semibold mb-3">Asapp Studio</p>
+              <ul class="text-[#a0aec0] text-sm space-y-1.5">
+                <li>• Led QA for multiple mobile & web products</li>
+                <li>• Designed and executed comprehensive test plans</li>
+                <li>• Collaborated with devs in Agile sprints</li>
+                <li>• Managed bug lifecycle using JIRA & TestRail</li>
+                <li>• Performed API testing with Postman</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Dot -->
+          <div class="hidden md:flex justify-start items-center">
+            <div class="timeline-dot ml-[-8px]"></div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="md:grid md:grid-cols-2 gap-8 mb-12 items-center">
+          <!-- Empty left side -->
+          <div class="hidden md:flex justify-end items-center">
+            <div class="timeline-dot mr-[-8px]"></div>
+          </div>
+          <div class="reveal">
+            <div class="glass rounded-2xl p-6 md:ml-8">
+              <span class="text-[#00d4ff] text-xs font-semibold uppercase tracking-widest">May 2024 – March 2025</span>
+              <h3 class="font-heading font-bold text-white text-xl mt-2">Associate SQA Engineer</h3>
+              <p class="text-[#7b2fff] font-semibold mb-3">Orax Technologies</p>
+              <ul class="text-[#a0aec0] text-sm space-y-1.5">
+                <li>• Executed regression, smoke & sanity testing</li>
+                <li>• Tested REST APIs using Postman collections</li>
+                <li>• Wrote and maintained test cases in TestRail</li>
+                <li>• Monitored crash reports via Firebase Crashlytics</li>
+                <li>• Validated ad integrations (AdMob, Firebase Ads)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="md:grid md:grid-cols-2 gap-8 items-center">
+          <div class="md:text-right reveal">
+            <div class="glass rounded-2xl p-6 md:mr-8">
+              <span class="text-[#00d4ff] text-xs font-semibold uppercase tracking-widest">Feb 2024 – April 2024</span>
+              <h3 class="font-heading font-bold text-white text-xl mt-2">AI Intern</h3>
+              <p class="text-[#7b2fff] font-semibold mb-3">ITSOLERA Pvt Ltd</p>
+              <ul class="text-[#a0aec0] text-sm space-y-1.5">
+                <li>• Worked on AI/ML model evaluation & data validation</li>
+                <li>• Assisted in building a Click-Through Rate prediction model</li>
+                <li>• Gained hands-on experience with Python & ML pipelines</li>
+                <li>• Contributed to QA processes for AI product features</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:flex justify-start items-center">
+            <div class="timeline-dot ml-[-8px]"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════════════ -->
+  <section id="projects" class="py-24 px-6" style="background: rgba(255,255,255,0.01);">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">Featured Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 avatar-gradient rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm">EA</div>
+              <h3 class="font-heading font-semibold text-white text-lg">ERP AsApp Studio</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Enterprise resource planning platform tested across modules — HR, inventory, finance, and payroll. Performed end-to-end functional and regression testing.
             </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">ERP</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Functional QA</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Regression</span>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="main.js"></script>
+        <!-- Project 2 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#00d4ff,#007aff);">IC</div>
+              <h3 class="font-heading font-semibold text-white text-lg">IConnct</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Social networking & connectivity platform. Tested real-time features, user flows, notifications, and cross-platform compatibility on iOS & Android.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Social App</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Mobile QA</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Cross-Platform</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#7b2fff,#ff2fff);">FS</div>
+              <h3 class="font-heading font-semibold text-white text-lg">Fleet2Share</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Vehicle fleet sharing platform. Validated booking flows, GPS tracking, payment gateway integrations, and role-based access control.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Fleet Mgmt</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">API Testing</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#00d4ff,#00ff99);">GM</div>
+              <h3 class="font-heading font-semibold text-white text-lg">Go Mobile</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Mobile-first delivery & logistics application. Tested driver/customer flows, real-time order tracking, and push notification systems.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Logistics App</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">E2E Testing</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Mobile QA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#ff6b35,#ff2fff);">CP</div>
+              <h3 class="font-heading font-semibold text-white text-lg">CourtPro</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Sports court booking & management system. Validated slot booking, recurring schedules, payment flows, and admin dashboards.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Sports Tech</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Booking QA</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">UAT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#7b2fff,#00d4ff);">PA</div>
+              <h3 class="font-heading font-semibold text-white text-lg">Passarell AI</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              AI-powered fashion recommendation platform. Tested ML model outputs, user preference flows, and performance under load. Validated AI response accuracy.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">AI Product</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">ML Validation</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Performance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#ff6b35,#00d4ff);">IS</div>
+              <h3 class="font-heading font-semibold text-white text-lg">IPTV Smart Stream</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              IPTV streaming platform tested for channel stability, buffering performance, multi-device sync, and subscription management workflows.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">IPTV</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Performance QA</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Cross-Platform</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card glass rounded-2xl overflow-hidden reveal cursor-default">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold font-heading text-sm" style="background: linear-gradient(135deg,#00ff99,#00d4ff);">IN</div>
+              <h3 class="font-heading font-semibold text-white text-lg">InvoiceNow</h3>
+            </div>
+            <p class="text-[#a0aec0] text-sm mb-4 leading-relaxed">
+              Automated invoicing & billing SaaS platform. Tested invoice generation accuracy, PDF exports, tax calculations, and client portal functionality.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">SaaS</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Billing QA</span>
+              <span class="skill-pill px-2 py-1 rounded-md text-xs">Regression</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════════════════ -->
+  <section id="education" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">Education</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="glass rounded-2xl p-8 reveal" style="border: 1px solid rgba(0,212,255,0.15); box-shadow: 0 0 40px rgba(0,212,255,0.05);">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div class="avatar-gradient w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-bold font-heading text-xl">
+            BS
+          </div>
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-white text-2xl mb-1">Bachelor of Science in Information Technology</h3>
+            <p class="text-[#7b2fff] font-semibold text-lg mb-2">University of Education, Lahore</p>
+            <div class="flex flex-wrap gap-4 text-sm text-[#a0aec0]">
+              <span class="flex items-center gap-1"><i class="fas fa-calendar-alt text-[#00d4ff]"></i> Completed 2024</span>
+              <span class="flex items-center gap-1"><i class="fas fa-star text-[#00d4ff]"></i> CGPA: <strong class="text-white ml-1">3.23 / 4.0</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════════ -->
+  <section id="contact" class="py-24 px-6" style="background: rgba(255,255,255,0.01);">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white" style="letter-spacing: -0.02em;">Get In Touch</h2>
+        <div class="section-line"></div>
+        <p class="text-[#a0aec0] mt-4 max-w-xl mx-auto">Interested in working together or discussing opportunities? I'd love to hear from you.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Info Cards -->
+        <div class="space-y-4 reveal">
+          <a href="mailto:munib7481@gmail.com" class="glass rounded-2xl p-5 flex items-center gap-4 cursor-pointer hover:border-[#00d4ff]/30 transition-all duration-300 hover:-translate-y-1 block">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,255,0.1);">
+              <i class="fas fa-envelope text-[#00d4ff] text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#4a5568] font-medium uppercase tracking-widest mb-1">Email</p>
+              <p class="text-white font-semibold">munib7481@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+923015732050" class="glass rounded-2xl p-5 flex items-center gap-4 cursor-pointer hover:border-[#00d4ff]/30 transition-all duration-300 hover:-translate-y-1 block">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(123,47,255,0.1);">
+              <i class="fas fa-phone text-[#7b2fff] text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#4a5568] font-medium uppercase tracking-widest mb-1">Phone</p>
+              <p class="text-white font-semibold">+92 301 5732050</p>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/munib-ur-rehman-987215267/" target="_blank" rel="noopener" class="glass rounded-2xl p-5 flex items-center gap-4 cursor-pointer hover:border-[#00d4ff]/30 transition-all duration-300 hover:-translate-y-1 block">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,119,181,0.1);">
+              <i class="fab fa-linkedin text-[#0077b5] text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#4a5568] font-medium uppercase tracking-widest mb-1">LinkedIn</p>
+              <p class="text-white font-semibold">Munib Ur Rehman</p>
+            </div>
+          </a>
+
+          <div class="glass rounded-2xl p-5 flex items-center gap-4 cursor-default">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,212,255,0.08);">
+              <i class="fas fa-map-marker-alt text-[#00d4ff] text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#4a5568] font-medium uppercase tracking-widest mb-1">Location</p>
+              <p class="text-white font-semibold">Pakistan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass rounded-2xl p-6 reveal">
+          <form id="contact-form" action="https://formsubmit.co/ajax/munib7481@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New Portfolio Message!" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="mb-4">
+              <label for="c-name" class="block text-sm font-medium text-[#a0aec0] mb-2">Your Name</label>
+              <input id="c-name" name="name" type="text" placeholder="John Doe" required
+                class="form-input w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+
+            <div class="mb-4">
+              <label for="c-email" class="block text-sm font-medium text-[#a0aec0] mb-2">Email Address</label>
+              <input id="c-email" name="email" type="email" placeholder="john@example.com" required
+                class="form-input w-full px-4 py-3 rounded-xl text-sm" />
+            </div>
+
+            <div class="mb-6">
+              <label for="c-msg" class="block text-sm font-medium text-[#a0aec0] mb-2">Message</label>
+              <textarea id="c-msg" name="message" rows="5" placeholder="Tell me about the opportunity..." required
+                class="form-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn"
+              class="btn-cyan w-full py-3 rounded-xl text-sm font-semibold cursor-pointer flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane"></i>
+              <span id="btn-text">Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="py-12 px-6 border-t border-white/5">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-heading font-bold text-2xl gradient-text mb-4">Munib Ur Rehman</p>
+      <p class="text-[#4a5568] text-sm mb-6">Software Quality Assurance Engineer</p>
+
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-4 mb-8">
+        <a href="mailto:munib7481@gmail.com" aria-label="Email" class="w-10 h-10 glass rounded-xl flex items-center justify-center text-[#a0aec0] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all duration-300 cursor-pointer">
+          <i class="fas fa-envelope text-sm"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/munib-ur-rehman-987215267/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 glass rounded-xl flex items-center justify-center text-[#a0aec0] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all duration-300 cursor-pointer">
+          <i class="fab fa-linkedin-in text-sm"></i>
+        </a>
+        <a href="tel:+923015732050" aria-label="Phone" class="w-10 h-10 glass rounded-xl flex items-center justify-center text-[#a0aec0] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all duration-300 cursor-pointer">
+          <i class="fas fa-phone text-sm"></i>
+        </a>
+        <a href="https://github.com/munib7481" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 glass rounded-xl flex items-center justify-center text-[#a0aec0] hover:text-[#00d4ff] hover:border-[#00d4ff]/30 transition-all duration-300 cursor-pointer">
+          <i class="fab fa-github text-sm"></i>
+        </a>
+      </div>
+
+      <p class="text-[#2d3748] text-xs">© <span id="footer-year"></span> Munib Ur Rehman. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       TOAST
+  ═══════════════════════════════════════════════════ -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 glass rounded-2xl px-6 py-4 flex items-center gap-3" role="status" aria-live="polite">
+    <i id="toast-icon" class="fas fa-check-circle text-[#00d4ff] text-lg"></i>
+    <p id="toast-msg" class="text-white text-sm font-medium"></p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════ -->
+  <script>
+  /* ─── Footer Year ─── */
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  /* ─── Hamburger / Mobile Menu ─── */
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  hamburgerBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  // close on link click
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+    });
+  });
+
+  /* ─── Navbar Scroll Effect ─── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ─── Active Nav Link (Scrollspy) ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => spyObserver.observe(s));
+
+  /* ─── Scroll Reveal ─── */
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  /* ─── Typewriter ─── */
+  const roles = ['SQA Engineer', 'Manual Tester', 'API Testing Expert'];
+  const typeEl = document.getElementById('typewriter');
+  let rIdx = 0, cIdx = 0, deleting = false;
+
+  function typewrite() {
+    const word = roles[rIdx];
+    if (!deleting) {
+      typeEl.textContent = word.slice(0, ++cIdx);
+      if (cIdx === word.length) {
+        deleting = true;
+        setTimeout(typewrite, 1600);
+        return;
+      }
+    } else {
+      typeEl.textContent = word.slice(0, --cIdx);
+      if (cIdx === 0) {
+        deleting = false;
+        rIdx = (rIdx + 1) % roles.length;
+        setTimeout(typewrite, 400);
+        return;
+      }
+    }
+    setTimeout(typewrite, deleting ? 60 : 90);
+  }
+  typewrite();
+
+  /* ─── Particle Canvas ─── */
+  (function() {
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const COUNT = 55;
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+
+    function createParticle() {
+      return {
+        x: rand(0, canvas.width),
+        y: rand(0, canvas.height),
+        r: rand(1, 2.5),
+        dx: rand(-0.25, 0.25),
+        dy: rand(-0.25, 0.25),
+        alpha: rand(0.1, 0.5),
+        dAlpha: rand(0.003, 0.008) * (Math.random() > 0.5 ? 1 : -1),
+        color: Math.random() > 0.5 ? '0,212,255' : '123,47,255',
+      };
+    }
+
+    for (let i = 0; i < COUNT; i++) particles.push(createParticle());
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        p.alpha += p.dAlpha;
+
+        if (p.alpha <= 0.05 || p.alpha >= 0.55) p.dAlpha *= -1;
+        if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+        ctx.fill();
+      });
+
+      // Draw connecting lines for close particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0,212,255,${0.04 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* ─── Toast Helper ─── */
+  function showToast(msg, success = true) {
+    const toast   = document.getElementById('toast');
+    const toastMsg  = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+    toastMsg.textContent = msg;
+    toastIcon.className = success
+      ? 'fas fa-check-circle text-[#00d4ff] text-lg'
+      : 'fas fa-times-circle text-red-400 text-lg';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  /* ─── Contact Form (AJAX) ─── */
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText   = document.getElementById('btn-text');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btnText.textContent = 'Sending…';
+    submitBtn.disabled  = true;
+    submitBtn.classList.add('opacity-70');
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (res.ok) {
+        form.reset();
+        showToast('Message sent! I\'ll get back to you soon.', true);
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      showToast('Oops! Something went wrong. Try emailing directly.', false);
+    } finally {
+      btnText.textContent = 'Send Message';
+      submitBtn.disabled  = false;
+      submitBtn.classList.remove('opacity-70');
+    }
+  });
+  </script>
 </body>
 </html>
