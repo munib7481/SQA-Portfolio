@@ -1268,6 +1268,13 @@
       }
     } catch {
       showToast('Oops! Something went wrong. Try emailing directly.', false);
+    } finally {
+      btnText.textContent = 'Send Message';
+      submitBtn.disabled  = false;
+      submitBtn.classList.remove('opacity-70');
+    }
+  });
+
   /* ─── 3D Card Tilt & Mouse Spotlight Effect ─── */
   (function() {
     const tiltCards = document.querySelectorAll('.tilt-card, .project-card, .stat-card');
